@@ -1,6 +1,7 @@
 package com.michael.springdemo;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 // if no name is given for the bean id, then the default will be used
 // @Component will have the default bean of @Component("tennisCoach")
@@ -10,7 +11,10 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class TennisCoach implements Coach {
-
+	
+	// field injection
+	@Autowired
+	@Qualifier("randomFortuneService")
 	private FortuneService fortuneService;
 	
 	// define default contructor
@@ -41,13 +45,15 @@ public class TennisCoach implements Coach {
 	}
 	*/
 	
+	/*
 	// any method can be autowired
 	@Autowired
 	public void myMethod(FortuneService fortuneService) {
 		System.out.println("TennisCoach: inside myMethod() method");
 		this.fortuneService = fortuneService;
 	}
-
+	*/
+	
 	@Override
 	public String getDailyFortune() {
 		return fortuneService.getFortune();
