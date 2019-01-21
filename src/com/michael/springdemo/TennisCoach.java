@@ -32,10 +32,19 @@ public class TennisCoach implements Coach {
 		return "Practice your backhand volley";
 	}
 
+	/*
 	// define setter method for setter injection
 	@Autowired
 	public void setFortuneService(FortuneService fortuneService) {
 		System.out.println("TennisCoach: inside setFortuneService() method");
+		this.fortuneService = fortuneService;
+	}
+	*/
+	
+	// any method can be autowired
+	@Autowired
+	public void myMethod(FortuneService fortuneService) {
+		System.out.println("TennisCoach: inside myMethod() method");
 		this.fortuneService = fortuneService;
 	}
 

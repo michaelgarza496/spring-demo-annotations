@@ -5,7 +5,8 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 /*
  * 3 types of dependency injections for autowired annotations
  * 		constructor
- * 		setter
+ * 		setter or really and method
+ * 		field
  */
 
 
