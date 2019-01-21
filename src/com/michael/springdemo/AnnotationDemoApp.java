@@ -2,6 +2,13 @@ package com.michael.springdemo;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+/*
+ * 3 types of dependency injections for autowired annotations
+ * 		constructor
+ * 		setter
+ */
+
+
 public class AnnotationDemoApp {
 
 	public static void main(String[] args) {
@@ -15,6 +22,9 @@ public class AnnotationDemoApp {
 		
 		// call a method on the bean
 		System.out.println(theCoach.getDailyWorkout());
+		
+		// call the method to get the daily fortune
+		System.out.println(theCoach.getDailyFortune());
 		
 		// close the context
 		context.close();
