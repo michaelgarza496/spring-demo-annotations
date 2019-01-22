@@ -4,6 +4,12 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /*
  * to provide the scope use @Scope under the @Component
+ * 
+ * @PostConstruct will execute after constructor and injection of dependencies
+ * @PreDestroy will execute before bean is destroyed
+ * 
+ * A prototype bean will not have it's @PreDestroy method called. This bean is handed
+ * to the client and the spring container is pretty much done with it.
  */
 
 public class AnnotationBeanScopeDemoApp {
