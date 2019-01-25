@@ -3,6 +3,7 @@ package com.michael.springdemo;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /*
@@ -37,6 +38,9 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * 
  * You also can define each bean by using the @Bean annotation over the method returning the
  * desired object.
+ * 
+ * For properties you add @PropertySource("classpath:nameOfFile") under @Configuration.
+ * Then add the @Value over any fields
  */
 
 public class SwimJavaConfigDemoApp {
@@ -48,13 +52,17 @@ public class SwimJavaConfigDemoApp {
 				new AnnotationConfigApplicationContext(SportConfig.class);
 		
 		// get the bean from spring container
-		Coach theCoach = context.getBean("swimCoach", Coach.class);
+		SwimCoach theCoach = context.getBean("swimCoach", SwimCoach.class);
 		
 		// call a method on the bean
 		System.out.println(theCoach.getDailyWorkout());
 		
 		// call the method to get the daily fortune
 		System.out.println(theCoach.getDailyFortune());
+		
+		// vall our new swim coach methods ... has the props values injected
+		System.out.println("email: " + theCoach.getEmail());
+		System.out.println("team: " + theCoach.getTeam());
 		
 		// close the context
 		context.close();
