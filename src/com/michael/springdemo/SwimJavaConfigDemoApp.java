@@ -49,7 +49,7 @@ public class SwimJavaConfigDemoApp {
 
 		// read spring config file
 		AnnotationConfigApplicationContext context = 
-				new AnnotationConfigApplicationContext(SportConfig.class);
+				new AnnotationConfigApplicationContext(MyLoggerConfig.class, SportConfig.class);
 		
 		// get the bean from spring container
 		SwimCoach theCoach = context.getBean("swimCoach", SwimCoach.class);
